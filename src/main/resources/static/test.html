@@ -1,0 +1,54 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<title>test</title>
+
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
+
+</head>
+
+<body>
+	<div>
+		<button type="button">Click Me!</button>
+	</div>
+
+	<script>
+		$(function() {
+			$("button").on("click", function() {
+				var url = "http://localhost:9002";
+				/*var param = { contractCheckDateModifyBeginTime: "2019-01-01", contractCheckDateModifyEndTime: "2019-12-01",
+						dateDimension: "月度", fieldNames: ["productCount", "productAchievementAmout"]};*/
+
+				var form = $("<form method='post'></form>");
+		        form.attr({ "action": url });
+
+				var input1 = $("<input type='hidden'>");
+				input1.attr({ "name": "fileName" });
+				input1.val("阿西吧");
+				form.append(input1);
+
+	            var input2 = $("<input type='hidden'>");
+				input2.attr({ "name": "modelId" });
+				input2.val("3B693D02-05AE-4B45-B840-24A641E9069C");
+	            form.append(input2);
+
+	            var input3 = $("<input type='hidden'>");
+				input3.attr({ "name": "dataType" });
+				input3.val("投资进度");
+	            form.append(input3);
+
+		        form.appendTo(document.body);
+		        form.submit();
+		        document.body.removeChild(form[0]);
+			});
+
+		});
+	</script>
+</body>
+</html>
+
+
+
